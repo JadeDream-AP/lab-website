@@ -5,251 +5,326 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="面向智能计算、复杂系统与交叉科学的现代课题组网站 demo。"
+      content="光炫教授，南开大学数学科学学院教授、博士生导师，研究方向包括信息论、编码理论与密码学。"
     />
-    <title>Complex Systems & Intelligence Lab</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta property="og:title" content="Xuan Guang Homepage" />
+    <meta property="og:description" content="南开大学数学科学学院 | 光炫教授个人主页" />
+    <meta property="og:image" content="assets/xuan-guang-share.png" />
+    <title>Xuan Guang Homepage</title>
+    <link rel="preconnect" href="https://static-fonts-css.sxlcdn.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
       rel="stylesheet"
+      href="https://static-fonts-css.sxlcdn.com/css?family=Montserrat:400,700&amp;subset=latin,latin-ext&amp;display=swap"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-noise" aria-hidden="true"></div>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="返回首页">
-        <span class="brand-mark">C</span>
-        <span class="brand-copy">
-          <strong>CSI Lab</strong>
-          <span>Complex Systems & Intelligence</span>
-        </span>
-      </a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
-      <nav class="site-nav" data-nav aria-label="主导航">
-        <a href="#research">研究方向</a>
-        <a href="#team">团队成员</a>
-        <a href="#publications">论文成果</a>
-        <a href="#news">最新动态</a>
-      </nav>
+    <header class="site-nav" data-nav>
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="返回首页">
+          <img src="assets/nankai-logo.png" alt="" />
+          <strong data-i18n-zh="数学科学学院" data-i18n-en="School of Mathematical Sciences">数学科学学院</strong>
+        </a>
 
-      <a class="header-cta magnetic" href="#contact">加入我们</a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#profile" data-i18n-zh="个人简介" data-i18n-en="Biography">个人简介</a>
+          <a href="#experience" data-i18n-zh="学术经历" data-i18n-en="Experience">学术经历</a>
+          <a href="#honors" data-i18n-zh="奖励荣誉" data-i18n-en="Honors">奖励荣誉</a>
+          <a href="#publications" data-i18n-zh="论文著作" data-i18n-en="Publications">论文著作</a>
+        </nav>
 
-      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航">
-        <span></span>
-        <span></span>
-      </button>
+        <div class="nav-actions">
+          <button class="lang-link active" type="button" data-lang-switch="zh">中文</button>
+          <button class="lang-link" type="button" data-lang-switch="en">EN</button>
+          <a
+            class="cv-button"
+            href="https://nankai.feishu.cn/file/C17Cbpn4JoPABqxV2gOctnFjnzc?from=from_copylink"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Curriculum Vitae
+          </a>
+        </div>
+
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="打开导航">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-panel" data-mobile-panel>
+        <a href="#profile" data-i18n-zh="个人简介" data-i18n-en="Biography">个人简介</a>
+        <a href="#experience" data-i18n-zh="学术经历" data-i18n-en="Experience">学术经历</a>
+        <a href="#honors" data-i18n-zh="奖励荣誉" data-i18n-en="Honors">奖励荣誉</a>
+        <a href="#publications" data-i18n-zh="论文著作" data-i18n-en="Publications">论文著作</a>
+        <button class="mobile-lang active" type="button" data-lang-switch="zh">中文</button>
+        <button class="mobile-lang" type="button" data-lang-switch="en">EN</button>
+        <a
+          href="https://nankai.feishu.cn/file/C17Cbpn4JoPABqxV2gOctnFjnzc?from=from_copylink"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Curriculum Vitae
+        </a>
+      </div>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/research-hero.png" alt="" />
-          <canvas id="flow-field"></canvas>
+      <section class="profile-hero">
+        <div class="hero-pattern" aria-hidden="true"></div>
+        <div class="hero-container">
+          <figure class="portrait-wrap">
+            <div class="portrait-plate" aria-hidden="true"></div>
+            <img src="assets/xuan-guang-portrait.jpg" alt="光炫教授" />
+          </figure>
+
+          <article class="profile-card">
+            <p class="hero-eyebrow">Nankai University · School of Mathematical Sciences</p>
+            <h1>
+              <span data-lang="zh">光 炫</span>
+              <span data-lang="en" hidden>Xuan Guang</span>
+            </h1>
+
+            <div data-lang="zh" class="profile-subtitle">
+              <p>教授</p>
+              <p>博士生导师</p>
+              <p>国家 “四青”人才计划</p>
+              <p>“南开大学百名青年学科带头人培养计划”</p>
+            </div>
+            <div data-lang="en" class="profile-subtitle" hidden>
+              <p>Professor</p>
+              <p>School of Mathematical Sciences, Nankai University</p>
+              <p>Hundred Young Academic Leaders Program of Nankai University</p>
+            </div>
+
+            <div class="research-tags" aria-label="研究方向">
+              <span data-i18n-zh="信息论" data-i18n-en="Information Theory">信息论</span>
+              <span data-i18n-zh="编码理论" data-i18n-en="Coding Theory">编码理论</span>
+              <span data-i18n-zh="密码学" data-i18n-en="Cryptography">密码学</span>
+              <span data-i18n-zh="网络编码" data-i18n-en="Network Coding">网络编码</span>
+            </div>
+
+            <div data-lang="zh">
+              <div class="contact-block">
+                <h2>地 址：</h2>
+                <p>数学楼 201 室</p>
+                <p>中国 天津市 卫津路94号</p>
+                <p>南开大学 数学科学学院 300071</p>
+              </div>
+
+              <div class="contact-block">
+                <h2>邮 箱：</h2>
+                <p>“xguang” + “@nankai.edu.cn”</p>
+              </div>
+            </div>
+
+            <div data-lang="en" hidden>
+              <div class="contact-block">
+                <h2>Address:</h2>
+                <p>Room 201, Maths Building</p>
+                <p>94 Weijin Road, Tianjin, China</p>
+                <p>School of Mathematical Sciences, Nankai University, 300071</p>
+              </div>
+
+              <div class="contact-block">
+                <h2>Email:</h2>
+                <p>“xguang” + “@nankai.edu.cn”</p>
+              </div>
+            </div>
+          </article>
         </div>
+      </section>
 
-        <div class="hero-content">
-          <p class="eyebrow reveal">Research Group · 2026</p>
-          <h1 id="hero-title" class="reveal">
-            探索复杂系统中的结构、智能与可解释规律
-          </h1>
-          <p class="hero-lede reveal">
-            我们关注智能计算、数据驱动建模与科学发现之间的连接，构建兼具理论深度与现实影响力的交叉研究平台。
-          </p>
+      <section class="text-section" id="profile">
+        <div class="container">
+          <div data-lang="zh">
+            <h2>个人简介</h2>
+            <p>
+                光炫博士，南开大学数学科学学院教授，博士生导师。入选国家级青年人才项目和南开大学百名青年学科带头人培养计划。2012年毕业于南开大学陈省身数学研究所，获博士学位，导师为符方伟教授。2011年1月至2012年8月在美国南加州大学从事联合培养博士（2011年1-12月国家留学基金委资助，2012年1-8月美国NSF资助），导师为张箴教授(Prof. Zhen Zhang)。2015年11月至2016年10月访问香港中文大学网络编码研究所；2016年11月至2018年11月入选“香江学者计划”，于香港中文大学网络编码研究所从事合作研究工作，合作导师均为杨伟豪教授(Prof. Raymond W. Yeung)。
+            </p>
+            <p>
+                光炫博士的研究领域为信息论、编码理论与密码学；目前的研究兴趣为面向函数计算的信息论与编码理论、网络编码理论及相关方向，特别是其基本数学理论的研究，并侧重有实际应用背景的理论问题。
+            </p>
+          </div>
 
-          <div class="hero-actions reveal">
-            <a class="button button-primary magnetic" href="#research">查看研究方向</a>
-            <a class="button button-secondary magnetic" href="#publications">代表成果</a>
+          <div data-lang="en" hidden>
+            <h2>Brief Biography</h2>
+            <p>
+              Xuan Guang is currently a Full Professor in the School of Mathematical Sciences (SMS) at Nankai University (NKU). He was selected into the Hundred Young Academic Leaders Program of Nankai University in 2017. He was a recipient of the 2018 Chinese Information Theory Young Rising Star Award by China Information Theory Society.
+            </p>
+            <p>
+              He received the Ph.D. degree in mathematics from Chern Institute of Mathematics at Nankai University in 2012, under the supervision of Prof. Fang-Wei Fu, and he was also a joint Ph.D. student in the Ming Hsieh Department of Electrical Engineering, University of Southern California from Jan. 2011 to Aug. 2012, under the supervision of Prof. Zhen Zhang. From Nov. 2015 to Nov. 2018, he was a postdoctoral fellow under the Hong Kong Scholars Program in the Institute of Network Coding (INC) at The Chinese University of Hong Kong, under the supervision of Prof. Raymond W. Yeung.
+            </p>
           </div>
         </div>
+      </section>
 
-        <aside class="hero-panel reveal" aria-label="课题组概览">
-          <div>
-            <span class="panel-kicker">Focus</span>
-            <strong>AI for Science</strong>
+      <section class="text-section" id="experience">
+        <div class="container">
+          <div data-lang="zh">
+            <h2>学术经历</h2>
+            <ul class="simple-list">
+              <li>2012.07--2014.12 南开大学 数学科学学院 讲 师</li>
+              <li>2014.12--2019.12 南开大学 数学科学学院 副教授</li>
+              <li>2015.11--2018.11 香港中文大学 网络编码研究所 香江学者</li>
+              <li>2019.12--今 南开大学 数学科学学院 教 授</li>
+            </ul>
           </div>
-          <p>
-            从数学结构、计算模型到真实场景验证，形成可持续迭代的研究闭环。
-          </p>
-          <div class="panel-grid">
-            <span>15+</span>
-            <span>成员</span>
-            <span>42</span>
-            <span>近五年论文</span>
+
+          <div data-lang="en" hidden>
+            <h2>Academic Experience</h2>
+            <ul class="simple-list">
+              <li>2012.07--2014.12 Lecturer, School of Mathematical Sciences, Nankai University</li>
+              <li>2014.12--2019.12 Associate Professor, School of Mathematical Sciences, Nankai University</li>
+              <li>2015.11--2018.11 Hong Kong Scholar, Institute of Network Coding, The Chinese University of Hong Kong</li>
+              <li>2019.12--present Professor, School of Mathematical Sciences, Nankai University</li>
+            </ul>
           </div>
-        </aside>
-      </section>
-
-      <section class="metrics band" aria-label="课题组指标">
-        <div class="metric reveal">
-          <strong>4</strong>
-          <span>核心方向</span>
-        </div>
-        <div class="metric reveal">
-          <strong>8</strong>
-          <span>合作机构</span>
-        </div>
-        <div class="metric reveal">
-          <strong>12</strong>
-          <span>开放课题</span>
-        </div>
-        <div class="metric reveal">
-          <strong>3</strong>
-          <span>长期项目</span>
         </div>
       </section>
 
-      <section class="section" id="research">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Research</p>
-          <h2>研究方向</h2>
-          <p>
-            将形式化理论、机器学习与领域知识放在同一个问题框架中，让模型既能预测，也能解释。
-          </p>
-        </div>
+      <section class="text-section" id="honors">
+        <div class="container">
+          <div data-lang="zh">
+            <h2>奖励与荣誉</h2>
+            <ul class="simple-list">
+              <li>2025 天津市优秀研究生指导教师</li>
+              <li>2025 南开大学优秀硕士学位论文（赵姝宁）指导教师</li>
+              <li>2024 中国科协首届青年人才托举工程博士生专项计划入选者（张儒泽）指导教师</li>
+              <li>2024 中国电子学会信息论分会学术激励计划博士学位论文（白洋）指导教师</li>
+              <li>2024 南开大学研究生优秀课程《信息论》</li>
+              <li>2022 南开大学尚格奖教金 一等奖</li>
+              <li>2021 国家青年人才计划</li>
+              <li>2021 天津数学与统计联合学术年会“青年学者奖”</li>
+              <li>2021 南开大学优秀硕士学位论文（张儒泽）指导教师</li>
+              <li>2020 南开大学尚格奖教金 三等奖</li>
+              <li>2018 中国电子学会“信息论青年新星奖”</li>
+              <li>2018 天津市“131创新人才计划”第二梯队人选</li>
+              <li>2018 香江学者年会“Best Poster Presentation Award”</li>
+              <li>2017 第二十四届信息论年会最佳论文奖</li>
+              <li>2016 香江学者奖</li>
+              <li>2015 天津市“131创新人才计划”第三梯队人选</li>
+              <li>2014 天津市“三年千人”高层次人才计划</li>
+              <li>2014 天津市优秀博士学位论文奖</li>
+              <li>2013 第二十届信息论年会最佳报告奖</li>
+              <li>2013 南开大学优秀博士学位论文奖</li>
+            </ul>
+          </div>
 
-        <div class="research-grid">
-          <article class="research-card reveal">
-            <span class="card-index">01</span>
-            <h3>复杂系统建模</h3>
-            <p>研究网络动力学、群体行为与多尺度系统的稳定性、涌现机制和可控性。</p>
-          </article>
-          <article class="research-card reveal">
-            <span class="card-index">02</span>
-            <h3>可信智能算法</h3>
-            <p>面向科学数据的小样本学习、可解释推断、因果表示与不确定性量化。</p>
-          </article>
-          <article class="research-card reveal">
-            <span class="card-index">03</span>
-            <h3>科学计算平台</h3>
-            <p>构建可复现的计算实验、自动化分析管线与面向团队协作的数据资产管理。</p>
-          </article>
-          <article class="research-card reveal">
-            <span class="card-index">04</span>
-            <h3>交叉应用场景</h3>
-            <p>服务材料、生命、城市与教育等领域，以真实问题推动方法持续生长。</p>
-          </article>
+          <div data-lang="en" hidden>
+            <h2>Honors and Awards</h2>
+            <ul class="simple-list">
+              <li>2025 Outstanding Graduate Supervisor of Tianjin</li>
+              <li>2025 Supervisor of Nankai University Outstanding Master's Thesis, Shuning Zhao</li>
+              <li>2024 Supervisor for the CAST Young Talent Support Program doctoral student project, Ruze Zhang</li>
+              <li>2024 Supervisor of the Information Theory Society academic incentive doctoral dissertation, Yang Bai</li>
+              <li>2024 Excellent Graduate Course of Nankai University, Information Theory</li>
+              <li>2022 First Prize, Shangge Teaching Award, Nankai University</li>
+              <li>2021 National Young Talent Program</li>
+              <li>2021 Young Scholar Award, Tianjin Mathematics and Statistics Joint Academic Annual Meeting</li>
+              <li>2021 Supervisor of Nankai University Outstanding Master's Thesis, Ruze Zhang</li>
+              <li>2020 Third Prize, Shangge Teaching Award, Nankai University</li>
+              <li>2018 Chinese Information Theory Young Rising Star Award</li>
+              <li>2018 Tianjin 131 Innovative Talent Program, Second Tier</li>
+              <li>2018 Best Poster Presentation Award, Hong Kong Scholars Annual Symposium</li>
+              <li>2017 Best Paper Award, 24th National Information Theory Conference</li>
+              <li>2016 Hong Kong Scholars Award</li>
+              <li>2015 Tianjin 131 Innovative Talent Program, Third Tier</li>
+              <li>2014 Tianjin Three-Year Thousand Talents Program</li>
+              <li>2014 Tianjin Outstanding Doctoral Dissertation Award</li>
+              <li>2013 Best Presentation Award, 20th National Information Theory Conference</li>
+              <li>2013 Nankai University Outstanding Doctoral Dissertation Award</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section class="section split" id="team">
-        <div class="section-heading sticky-copy reveal">
-          <p class="eyebrow">People</p>
-          <h2>团队成员</h2>
-          <p>
-            Demo 中使用占位信息。替换姓名、头像、方向和个人主页链接后，即可成为正式课题组成员页。
-          </p>
-        </div>
+      <section class="text-section" id="publications">
+        <div class="container">
+          <div data-lang="zh">
+            <h2>论文著作</h2>
+            <h3>专著：</h3>
+          </div>
+          <div data-lang="en" hidden>
+            <h2>Publications</h2>
+            <h3>Book:</h3>
+          </div>
 
-        <div class="people-list">
-          <article class="person reveal">
-            <div class="avatar">L</div>
-            <div>
-              <h3>李教授</h3>
-              <p>课题组负责人 · 复杂系统与智能计算</p>
-            </div>
-            <a href="#contact" aria-label="查看李教授主页">Profile</a>
-          </article>
-          <article class="person reveal">
-            <div class="avatar">Z</div>
-            <div>
-              <h3>张博士</h3>
-              <p>博士后 · 图学习与科学发现</p>
-            </div>
-            <a href="#contact" aria-label="查看张博士主页">Profile</a>
-          </article>
-          <article class="person reveal">
-            <div class="avatar">W</div>
-            <div>
-              <h3>王同学</h3>
-              <p>博士生 · 动力系统与可解释建模</p>
-            </div>
-            <a href="#contact" aria-label="查看王同学主页">Profile</a>
-          </article>
-          <article class="person reveal">
-            <div class="avatar">C</div>
-            <div>
-              <h3>陈同学</h3>
-              <p>硕士生 · 数据平台与可视化分析</p>
-            </div>
-            <a href="#contact" aria-label="查看陈同学主页">Profile</a>
-          </article>
-        </div>
-      </section>
+          <ul class="publication-list">
+            <li>Xuan Guang and Zhen Zhang, Linear Network Error Correction Coding. <strong>Springer</strong>, 2014.</li>
+          </ul>
 
-      <section class="section publications" id="publications">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Publications</p>
-          <h2>代表成果</h2>
-          <p>论文条目按官网常见格式设计，后续可以接 BibTeX、Google Scholar 或手动维护。</p>
+          <h3 data-lang="zh">代表性期刊论文：</h3>
+          <h3 data-lang="en" hidden>Selected Journal Papers:</h3>
+          <ul class="publication-list">
+            <li>Xuan Guang, Jihang Yang, and Ruze Zhang, “Uniquely-Decodable Coding for Zero-Error Network Function Computation,” <em><strong>IEEE Transactions on Information Theory</strong></em>, accepted, 2026.</li>
+            <li>Yang Bai, Xuan Guang, and Raymond W. Yeung, “Secure Network Function Computation for Linear Functions, Part II: Target-Function Security,” <em><strong>IEEE Transactions on Information Theory</strong></em>, accepted, 2026.</li>
+            <li>
+              <a
+                class="paper-link"
+                href="assets/papers/Edge-Subset_Lattice_and_Its_Application_to_Linear_Network_Error_Correction_Coding.pdf"
+                data-paper-link
+                data-paper-title="Edge-Subset Lattice and Its Application to Linear Network Error Correction Coding"
+              >
+                Xuan Guang, Ruopu Cui, and Raymond W. Yeung, “Edge-Subset Lattice and Its Application to Linear Network Error Correction Coding,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 71(7): 5700–5719, 2025.
+                <span class="paper-badge">PDF</span>
+              </a>
+            </li>
+            <li>Xuan Guang and Ruze Zhang, “Zero-Error Distributed Compression of Binary Arithmetic Sum,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 70(5): 3100–3117, 2024.</li>
+            <li>Xuan Guang, Yang Bai, and Raymond W. Yeung, “Secure Network Function Computation for Linear Functions -- Part I: Source Security,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 70(1): 676–697, 2024.</li>
+            <li>Ruze Zhang, Xuan Guang, Shenghao Yang, Xueyan Niu, and Bo Bai, “Computation of Binary Arithmetic Sum over an Asymmetric Diamond Network,” <em><strong>IEEE Journal on Selected Areas in Information Theory</strong></em>, 5: 585–596, 2024.</li>
+            <li>Yinfei Xu, Jian Lu, Xuan Guang, and Wei Xu, “Information Embedding with Stegotext Reconstruction,” <em><strong>IEEE Transactions on Information Forensics and Security</strong></em>, 19: 1415–1428, 2024.</li>
+            <li>Xuan Guang and Raymond W. Yeung, “A Revisit of Linear Network Error Correction Coding,” <em><strong>IEEE Journal on Selected Areas in Information Theory</strong></em>, 4: 514–523, 2023.</li>
+            <li>Yinfei Xu, Xuan Guang, Jian Lu, and Jun Chen, “Vector Gaussian Successive Refinement with Degraded Side Information,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 67(11): 6963–6982, 2021.</li>
+            <li>Tao Guo, Xuan Guang, and Kenneth W. Shum, “On the Rate Region of Symmetric Multilevel Imperfect Secret Sharing,” <em><strong>IEEE Transactions on Communications</strong></em>, 69(1): 470–485, 2021.</li>
+            <li>Xuan Guang, Raymond W. Yeung and Fang-Wei Fu, “Local-Encoding-Preserving Secure Network Coding,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 66(10): 5965–5994, 2020.</li>
+            <li>Xuan Guang, Raymond W. Yeung, Shenghao Yang, and Congduan Li, “Improved Upper Bound on the Network Function Computing Capacity,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 65(6): 3790-3811, 2019.</li>
+            <li>Zhiheng Zhou, Congduan Li, Shenghao Yang, and Xuan Guang, “Practical Inner Codes for BATS Codes in Multi-hop Wireless Networks,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, 68(3): 2751-2762, 2019.</li>
+            <li>Xuan Guang, and Raymond W. Yeung, “Alphabet Size Reduction for Secure Network Coding: A Graph Theoretic Approach,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 64(6): 4513-4529, 2018.</li>
+            <li>Cupjin Huang, Zihan Tan, Shenghao Yang, and Xuan Guang, “Comments on Cut-Set Bounds on Network Function Computation,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 64(9): 6454-6459, 2018.</li>
+            <li>Congduan Li, Xuan Guang, Chee Wei Tan, and Raymond W. Yeung, “Fundamental Limits on a Class of Secure Asymmetric Multilevel Diversity Coding Systems,” <em><strong>IEEE Journal on Selected Areas in Communications</strong></em>, 36(4): 737-747, 2018.</li>
+            <li>Congduan Li and Xuan Guang, “Asymmetric Multilevel Diversity Coding Systems with Perfect Secrecy,” <em><strong>IEEE Transactions on Vehicular Technology</strong></em>, 66(9): 8558-8562, 2017.</li>
+            <li>Xuan Guang, Fang-Wei Fu, and Zhen Zhang, “Variable-Rate Linear Network Error Correction MDS Codes,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 62(6): 3147-3164, 2016.</li>
+            <li>Xuan Guang, Jiyong Lu, and Fang-Wei Fu, “On the Optimality of Secure Network Coding,” <em><strong>IEEE Communications Letters</strong></em>, 19(7): 1165-1168, 2015.</li>
+            <li>Xuan Guang, Jiyong Lu, and Fang-Wei Fu, “Small Field Size for Secure Network Coding,” <em><strong>IEEE Communications Letters</strong></em>, 19(3): 375-378, 2015.</li>
+            <li>Xuan Guang, Fang-Wei Fu, and Zhen Zhang, “Construction of Network Error Correction Codes in Packet Networks,” <em><strong>IEEE Transactions on Information Theory</strong></em>, 59(2): 1030-1047, 2013.</li>
+            <li>Xuan Guang, Fang-Wei Fu, and Lusheng Chen, “The Existence and Synchronization Properties of Symmetric Fix-Free Codes,” <em><strong>Science China</strong></em>, 56(9), 2013.</li>
+          </ul>
         </div>
-
-        <div class="publication-list">
-          <article class="publication reveal">
-            <span>2026</span>
-            <div>
-              <h3>Structure-aware Learning for Nonlinear Scientific Systems</h3>
-              <p>Journal of Machine Learning Research · Selected Paper</p>
-            </div>
-            <a href="#contact">PDF</a>
-          </article>
-          <article class="publication reveal">
-            <span>2025</span>
-            <div>
-              <h3>Interpretable Graph Dynamics in Complex Networks</h3>
-              <p>Nature Computational Science · Collaboration</p>
-            </div>
-            <a href="#contact">DOI</a>
-          </article>
-          <article class="publication reveal">
-            <span>2024</span>
-            <div>
-              <h3>Data-efficient Discovery of Multi-scale Patterns</h3>
-              <p>NeurIPS · Spotlight</p>
-            </div>
-            <a href="#contact">Code</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section news" id="news">
-        <div class="section-heading reveal">
-          <p class="eyebrow">News</p>
-          <h2>最新动态</h2>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <time datetime="2026-06">2026.06</time>
-            <p>课题组开放 2027 级博士生与科研助理申请。</p>
-          </article>
-          <article class="timeline-item reveal">
-            <time datetime="2026-05">2026.05</time>
-            <p>团队论文被国际会议接收，并获得口头报告邀请。</p>
-          </article>
-          <article class="timeline-item reveal">
-            <time datetime="2026-03">2026.03</time>
-            <p>与合作单位启动智能科学计算联合项目。</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact-band" id="contact">
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Contact</p>
-          <h2>欢迎对复杂问题保持好奇的人加入我们</h2>
-          <p>请将个人简历、研究兴趣与代表材料发送至 lab@example.edu.cn。</p>
-        </div>
-        <a class="button button-primary magnetic reveal" href="mailto:lab@example.edu.cn">
-          发送邮件
-        </a>
       </section>
     </main>
 
+    <div class="pdf-viewer" data-pdf-viewer hidden>
+      <div class="pdf-backdrop" data-pdf-close></div>
+      <section
+        class="pdf-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="pdf-viewer-title"
+      >
+        <header class="pdf-toolbar">
+          <h2 id="pdf-viewer-title" data-pdf-title>论文 PDF</h2>
+          <div class="pdf-actions">
+            <a data-pdf-open href="#" target="_blank" rel="noopener" data-i18n-zh="新标签打开" data-i18n-en="Open in new tab">新标签打开</a>
+            <button type="button" data-pdf-close aria-label="关闭 PDF 查看器" data-i18n-zh="关闭" data-i18n-en="Close">关闭</button>
+          </div>
+        </header>
+        <iframe
+          class="pdf-frame"
+          data-pdf-frame
+          title="论文 PDF 查看器"
+          loading="lazy"
+        ></iframe>
+      </section>
+    </div>
+
     <footer class="site-footer">
-      <span>© 2026 Complex Systems & Intelligence Lab</span>
-      <a href="#top">Back to top</a>
+      <div class="footer-inner">
+        <h2 data-i18n-zh="南开大学 | 数学科学学院" data-i18n-en="Nankai University | School of Mathematical Sciences">南开大学 | 数学科学学院</h2>
+        <p>Nankai University | School of Mathematical Sciences</p>
+      </div>
     </footer>
 
     <script src="script.js"></script>

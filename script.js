@@ -1,137 +1,186 @@
 const body = document.body;
-document.documentElement.classList.add("motion-ready");
-
-const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
-const navToggle = document.querySelector("[data-nav-toggle]");
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const mobilePanel = document.querySelector("[data-mobile-panel]");
+const progress = document.querySelector("[data-scroll-progress]");
+const paperLinks = document.querySelectorAll("[data-paper-link]");
+const pdfViewer = document.querySelector("[data-pdf-viewer]");
+const pdfFrame = document.querySelector("[data-pdf-frame]");
+const pdfTitle = document.querySelector("[data-pdf-title]");
+const pdfOpen = document.querySelector("[data-pdf-open]");
+const pdfCloseButtons = document.querySelectorAll("[data-pdf-close]");
+const langSwitches = document.querySelectorAll("[data-lang-switch]");
+const translatedText = document.querySelectorAll("[data-i18n-zh][data-i18n-en]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const sectionIds = ["profile", "experience", "honors", "publications"];
+const sections = sectionIds
+  .map((id) => document.getElementById(id))
+  .filter((section) => section instanceof HTMLElement);
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const portrait = document.querySelector(".portrait-wrap img");
+let currentLang = localStorage.getItem("site-language") || "zh";
+
 const setHeaderState = () => {
-  header?.classList.toggle("is-scrolled", window.scrollY > 24);
+  nav?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
-setHeaderState();
-window.addEventListener("scroll", setHeaderState, { passive: true });
+const setScrollProgress = () => {
+  if (!progress) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const amount = scrollable > 0 ? window.scrollY / scrollable : 0;
+  progress.style.transform = `scaleX(${Math.min(Math.max(amount, 0), 1)})`;
+};
 
-navToggle?.addEventListener("click", () => {
-  const isOpen = body.classList.toggle("nav-open");
-  navToggle.setAttribute("aria-label", isOpen ? "关闭导航" : "打开导航");
-});
+const setActiveNav = () => {
+  const current = [...sections].reverse().find((section) => {
+    return section.getBoundingClientRect().top <= 140;
+  });
 
-nav?.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
-    body.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-label", "打开导航");
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    link.classList.toggle("is-active", Boolean(current && href === `#${current.id}`));
+  });
+};
+
+const setHeroMotion = () => {
+  if (!portrait || reduceMotion) return;
+  const progressY = Math.min(window.scrollY / 520, 1);
+  portrait.style.transform = `translateY(${progressY * 14}px) scale(${1 + progressY * 0.012})`;
+};
+
+const refreshRevealTargets = () => {
+  document.querySelectorAll(".reveal").forEach((element) => {
+    element.classList.remove("reveal", "is-visible");
+    element.style.removeProperty("--reveal-delay");
+  });
+
+  document
+    .querySelectorAll(".profile-card, .portrait-wrap, .text-section h2, .text-section p, .simple-list li, .publication-list li")
+    .forEach((element, index) => {
+      const isHidden = element.closest("[hidden]");
+      if (isHidden) return;
+      element.classList.add("reveal");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 45}ms`);
+    });
+
+  if (reduceMotion) {
+    document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+    return;
   }
-});
 
-const revealItems = [...document.querySelectorAll(".reveal")];
-revealItems.forEach((item, index) => {
-  item.style.setProperty("--delay", `${Math.min(index % 5, 4) * 70}ms`);
-});
-
-if (!reduceMotion) {
-  const observer = new IntersectionObserver(
+  const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -8% 0px" },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.14 },
   );
 
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
-}
+  document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+};
 
-const magneticItems = [...document.querySelectorAll(".magnetic")];
-if (!reduceMotion) {
-  magneticItems.forEach((item) => {
-    item.addEventListener("pointermove", (event) => {
-      const rect = item.getBoundingClientRect();
-      const x = event.clientX - rect.left - rect.width / 2;
-      const y = event.clientY - rect.top - rect.height / 2;
-      item.style.transform = `translate(${x * 0.08}px, ${y * 0.14}px)`;
-    });
+const setLanguage = (lang) => {
+  currentLang = lang === "en" ? "en" : "zh";
+  document.documentElement.lang = currentLang === "en" ? "en" : "zh-CN";
+  localStorage.setItem("site-language", currentLang);
 
-    item.addEventListener("pointerleave", () => {
-      item.style.transform = "";
-    });
+  document.querySelectorAll("[data-lang]").forEach((element) => {
+    element.hidden = element.getAttribute("data-lang") !== currentLang;
   });
-}
 
-const heroImage = document.querySelector(".hero-media img");
-if (heroImage && !reduceMotion) {
-  window.addEventListener(
-    "scroll",
-    () => {
-      const progress = Math.min(window.scrollY / window.innerHeight, 1);
-      heroImage.style.transform = `scale(${1.05 + progress * 0.035}) translateY(${progress * 18}px)`;
-    },
-    { passive: true },
+  translatedText.forEach((element) => {
+    const value = element.getAttribute(`data-i18n-${currentLang}`);
+    if (value) element.textContent = value;
+  });
+
+  langSwitches.forEach((button) => {
+    const isActive = button.getAttribute("data-lang-switch") === currentLang;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  menuToggle?.setAttribute("aria-label", currentLang === "en" ? "Open menu" : "打开导航");
+  refreshRevealTargets();
+  updateScrollState();
+};
+
+const updateScrollState = () => {
+  setHeaderState();
+  setScrollProgress();
+  setActiveNav();
+  setHeroMotion();
+};
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = body.classList.toggle("menu-open");
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen
+      ? currentLang === "en"
+        ? "Close menu"
+        : "关闭导航"
+      : currentLang === "en"
+        ? "Open menu"
+        : "打开导航",
   );
-}
-
-const canvas = document.querySelector("#flow-field");
-const context = canvas?.getContext("2d");
-let width = 0;
-let height = 0;
-let raf = 0;
-let tick = 0;
-
-const resizeCanvas = () => {
-  if (!canvas || !context) return;
-  const ratio = Math.min(window.devicePixelRatio || 1, 2);
-  const rect = canvas.getBoundingClientRect();
-  width = Math.floor(rect.width);
-  height = Math.floor(rect.height);
-  canvas.width = Math.floor(width * ratio);
-  canvas.height = Math.floor(height * ratio);
-  context.setTransform(ratio, 0, 0, ratio, 0, 0);
-};
-
-const drawFlow = () => {
-  if (!context || !canvas) return;
-  context.clearRect(0, 0, width, height);
-  context.lineWidth = 1;
-
-  for (let i = 0; i < 9; i += 1) {
-    const offset = i * 56;
-    const phase = tick * 0.006 + i * 0.52;
-    context.beginPath();
-    context.strokeStyle = i % 3 === 0 ? "rgba(216, 95, 69, 0.22)" : "rgba(11, 90, 91, 0.18)";
-
-    for (let x = -80; x <= width + 100; x += 18) {
-      const base = height * 0.33 + offset;
-      const y =
-        base +
-        Math.sin(x * 0.006 + phase) * 42 +
-        Math.cos(x * 0.011 - phase * 0.8) * 18;
-
-      if (x === -80) {
-        context.moveTo(x, y);
-      } else {
-        context.lineTo(x, y);
-      }
-    }
-
-    context.stroke();
-  }
-
-  tick += 1;
-  raf = window.requestAnimationFrame(drawFlow);
-};
-
-if (canvas && context && !reduceMotion) {
-  resizeCanvas();
-  drawFlow();
-  window.addEventListener("resize", resizeCanvas);
-}
-
-window.addEventListener("beforeunload", () => {
-  if (raf) window.cancelAnimationFrame(raf);
 });
+
+mobilePanel?.addEventListener("click", (event) => {
+  if (event.target instanceof HTMLAnchorElement) {
+    body.classList.remove("menu-open");
+    menuToggle?.setAttribute("aria-label", currentLang === "en" ? "Open menu" : "打开导航");
+  }
+});
+
+langSwitches.forEach((button) => {
+  button.addEventListener("click", () => {
+    const lang = button.getAttribute("data-lang-switch");
+    setLanguage(lang || "zh");
+    body.classList.remove("menu-open");
+  });
+});
+
+const closePdfViewer = () => {
+  if (!pdfViewer) return;
+  pdfViewer.hidden = true;
+  body.classList.remove("pdf-open");
+  if (pdfFrame instanceof HTMLIFrameElement) {
+    pdfFrame.removeAttribute("src");
+  }
+};
+
+paperLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!(link instanceof HTMLAnchorElement) || !pdfViewer) return;
+    event.preventDefault();
+
+    const paperUrl = link.href;
+    const paperTitle = link.dataset.paperTitle || "论文 PDF";
+
+    if (pdfTitle) pdfTitle.textContent = paperTitle;
+    if (pdfOpen instanceof HTMLAnchorElement) pdfOpen.href = paperUrl;
+    if (pdfFrame instanceof HTMLIFrameElement) pdfFrame.src = paperUrl;
+
+    pdfViewer.hidden = false;
+    body.classList.add("pdf-open");
+  });
+});
+
+pdfCloseButtons.forEach((button) => {
+  button.addEventListener("click", closePdfViewer);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !pdfViewer?.hidden) {
+    closePdfViewer();
+  }
+});
+
+setLanguage(currentLang);
+window.addEventListener("scroll", updateScrollState, { passive: true });
+window.addEventListener("resize", updateScrollState);
