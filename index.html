@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="面向智能计算、复杂系统与交叉科学的现代课题组网站 demo。"
+    />
+    <title>Complex Systems & Intelligence Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">C</span>
+        <span class="brand-copy">
+          <strong>CSI Lab</strong>
+          <span>Complex Systems & Intelligence</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" data-nav aria-label="主导航">
+        <a href="#research">研究方向</a>
+        <a href="#team">团队成员</a>
+        <a href="#publications">论文成果</a>
+        <a href="#news">最新动态</a>
+      </nav>
+
+      <a class="header-cta magnetic" href="#contact">加入我们</a>
+
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/research-hero.png" alt="" />
+          <canvas id="flow-field"></canvas>
+        </div>
+
+        <div class="hero-content">
+          <p class="eyebrow reveal">Research Group · 2026</p>
+          <h1 id="hero-title" class="reveal">
+            探索复杂系统中的结构、智能与可解释规律
+          </h1>
+          <p class="hero-lede reveal">
+            我们关注智能计算、数据驱动建模与科学发现之间的连接，构建兼具理论深度与现实影响力的交叉研究平台。
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="button button-primary magnetic" href="#research">查看研究方向</a>
+            <a class="button button-secondary magnetic" href="#publications">代表成果</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="课题组概览">
+          <div>
+            <span class="panel-kicker">Focus</span>
+            <strong>AI for Science</strong>
+          </div>
+          <p>
+            从数学结构、计算模型到真实场景验证，形成可持续迭代的研究闭环。
+          </p>
+          <div class="panel-grid">
+            <span>15+</span>
+            <span>成员</span>
+            <span>42</span>
+            <span>近五年论文</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="metrics band" aria-label="课题组指标">
+        <div class="metric reveal">
+          <strong>4</strong>
+          <span>核心方向</span>
+        </div>
+        <div class="metric reveal">
+          <strong>8</strong>
+          <span>合作机构</span>
+        </div>
+        <div class="metric reveal">
+          <strong>12</strong>
+          <span>开放课题</span>
+        </div>
+        <div class="metric reveal">
+          <strong>3</strong>
+          <span>长期项目</span>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Research</p>
+          <h2>研究方向</h2>
+          <p>
+            将形式化理论、机器学习与领域知识放在同一个问题框架中，让模型既能预测，也能解释。
+          </p>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card reveal">
+            <span class="card-index">01</span>
+            <h3>复杂系统建模</h3>
+            <p>研究网络动力学、群体行为与多尺度系统的稳定性、涌现机制和可控性。</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">02</span>
+            <h3>可信智能算法</h3>
+            <p>面向科学数据的小样本学习、可解释推断、因果表示与不确定性量化。</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">03</span>
+            <h3>科学计算平台</h3>
+            <p>构建可复现的计算实验、自动化分析管线与面向团队协作的数据资产管理。</p>
+          </article>
+          <article class="research-card reveal">
+            <span class="card-index">04</span>
+            <h3>交叉应用场景</h3>
+            <p>服务材料、生命、城市与教育等领域，以真实问题推动方法持续生长。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="team">
+        <div class="section-heading sticky-copy reveal">
+          <p class="eyebrow">People</p>
+          <h2>团队成员</h2>
+          <p>
+            Demo 中使用占位信息。替换姓名、头像、方向和个人主页链接后，即可成为正式课题组成员页。
+          </p>
+        </div>
+
+        <div class="people-list">
+          <article class="person reveal">
+            <div class="avatar">L</div>
+            <div>
+              <h3>李教授</h3>
+              <p>课题组负责人 · 复杂系统与智能计算</p>
+            </div>
+            <a href="#contact" aria-label="查看李教授主页">Profile</a>
+          </article>
+          <article class="person reveal">
+            <div class="avatar">Z</div>
+            <div>
+              <h3>张博士</h3>
+              <p>博士后 · 图学习与科学发现</p>
+            </div>
+            <a href="#contact" aria-label="查看张博士主页">Profile</a>
+          </article>
+          <article class="person reveal">
+            <div class="avatar">W</div>
+            <div>
+              <h3>王同学</h3>
+              <p>博士生 · 动力系统与可解释建模</p>
+            </div>
+            <a href="#contact" aria-label="查看王同学主页">Profile</a>
+          </article>
+          <article class="person reveal">
+            <div class="avatar">C</div>
+            <div>
+              <h3>陈同学</h3>
+              <p>硕士生 · 数据平台与可视化分析</p>
+            </div>
+            <a href="#contact" aria-label="查看陈同学主页">Profile</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section publications" id="publications">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Publications</p>
+          <h2>代表成果</h2>
+          <p>论文条目按官网常见格式设计，后续可以接 BibTeX、Google Scholar 或手动维护。</p>
+        </div>
+
+        <div class="publication-list">
+          <article class="publication reveal">
+            <span>2026</span>
+            <div>
+              <h3>Structure-aware Learning for Nonlinear Scientific Systems</h3>
+              <p>Journal of Machine Learning Research · Selected Paper</p>
+            </div>
+            <a href="#contact">PDF</a>
+          </article>
+          <article class="publication reveal">
+            <span>2025</span>
+            <div>
+              <h3>Interpretable Graph Dynamics in Complex Networks</h3>
+              <p>Nature Computational Science · Collaboration</p>
+            </div>
+            <a href="#contact">DOI</a>
+          </article>
+          <article class="publication reveal">
+            <span>2024</span>
+            <div>
+              <h3>Data-efficient Discovery of Multi-scale Patterns</h3>
+              <p>NeurIPS · Spotlight</p>
+            </div>
+            <a href="#contact">Code</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section news" id="news">
+        <div class="section-heading reveal">
+          <p class="eyebrow">News</p>
+          <h2>最新动态</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <time datetime="2026-06">2026.06</time>
+            <p>课题组开放 2027 级博士生与科研助理申请。</p>
+          </article>
+          <article class="timeline-item reveal">
+            <time datetime="2026-05">2026.05</time>
+            <p>团队论文被国际会议接收，并获得口头报告邀请。</p>
+          </article>
+          <article class="timeline-item reveal">
+            <time datetime="2026-03">2026.03</time>
+            <p>与合作单位启动智能科学计算联合项目。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-band" id="contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>欢迎对复杂问题保持好奇的人加入我们</h2>
+          <p>请将个人简历、研究兴趣与代表材料发送至 lab@example.edu.cn。</p>
+        </div>
+        <a class="button button-primary magnetic reveal" href="mailto:lab@example.edu.cn">
+          发送邮件
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 Complex Systems & Intelligence Lab</span>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
