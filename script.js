@@ -10,10 +10,11 @@ const pdfTitle = document.querySelector("[data-pdf-title]");
 const pdfOpen = document.querySelector("[data-pdf-open]");
 const pdfCloseButtons = document.querySelectorAll("[data-pdf-close]");
 const langSwitches = document.querySelectorAll("[data-lang-switch]");
+const langToggles = document.querySelectorAll("[data-lang-toggle]");
 const translatedText = document.querySelectorAll("[data-i18n-zh][data-i18n-en]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const sectionIds = ["profile", "experience", "honors", "publications"];
+const sectionIds = ["profile", "experience", "honors", "publications", "students"];
 const sections = sectionIds
   .map((id) => document.getElementById(id))
   .filter((section) => section instanceof HTMLElement);
@@ -56,7 +57,7 @@ const refreshRevealTargets = () => {
   });
 
   document
-    .querySelectorAll(".profile-card, .portrait-wrap, .text-section h2, .text-section p, .simple-list li, .publication-list li")
+    .querySelectorAll(".profile-card, .portrait-wrap, .text-section h2, .text-section p, .simple-list li, .publication-list li, .student-stats div, .student-card")
     .forEach((element, index) => {
       const isHidden = element.closest("[hidden]");
       if (isHidden) return;
@@ -104,6 +105,14 @@ const setLanguage = (lang) => {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
+  langToggles.forEach((button) => {
+    const nextLang = currentLang === "zh" ? "en" : "zh";
+    button.textContent = currentLang === "zh" ? "EN" : "中文";
+    button.setAttribute("aria-label", currentLang === "zh" ? "Switch to English" : "切换到中文");
+    button.setAttribute("aria-pressed", "false");
+    button.dataset.nextLang = nextLang;
+  });
+
   menuToggle?.setAttribute("aria-label", currentLang === "en" ? "Open menu" : "打开导航");
   refreshRevealTargets();
   updateScrollState();
@@ -141,6 +150,13 @@ langSwitches.forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.getAttribute("data-lang-switch");
     setLanguage(lang || "zh");
+    body.classList.remove("menu-open");
+  });
+});
+
+langToggles.forEach((button) => {
+  button.addEventListener("click", () => {
+    setLanguage(currentLang === "zh" ? "en" : "zh");
     body.classList.remove("menu-open");
   });
 });
@@ -184,3 +200,5 @@ document.addEventListener("keydown", (event) => {
 setLanguage(currentLang);
 window.addEventListener("scroll", updateScrollState, { passive: true });
 window.addEventListener("resize", updateScrollState);
+window.addEventListener("hashchange", updateScrollState);
+window.addEventListener("load", () => window.setTimeout(updateScrollState, 0));

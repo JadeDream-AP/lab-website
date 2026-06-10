@@ -93,28 +93,28 @@ img {
 .nav-inner {
   display: flex;
   align-items: center;
-  width: min(var(--container), calc(100% - 56px));
+  width: min(1400px, calc(100% - 32px));
   min-height: 88px;
   margin: 0 auto;
-  gap: 22px;
+  gap: 18px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  min-width: 430px;
-  gap: 18px;
+  min-width: clamp(360px, 30vw, 470px);
+  gap: 16px;
 }
 
 .brand img {
-  width: 72px;
-  height: 72px;
+  width: 158px;
+  height: auto;
   object-fit: contain;
 }
 
 .brand strong {
   color: var(--paper);
-  font-size: 21px;
+  font-size: 19px;
   line-height: 1.2;
   font-weight: 700;
   white-space: nowrap;
@@ -123,9 +123,9 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex: 1;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-links a,
@@ -133,12 +133,12 @@ img {
   position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 12px;
+  min-height: 38px;
+  padding: 0 10px;
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, 0.86);
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
   font-weight: 700;
   cursor: pointer;
@@ -146,12 +146,19 @@ img {
   transition: color 180ms ease;
 }
 
-.nav-links a::after,
-.lang-link::after {
+.lang-link {
+  justify-content: center;
+  min-width: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-links a::after {
   position: absolute;
-  right: 12px;
-  bottom: 8px;
-  left: 12px;
+  right: 10px;
+  bottom: 7px;
+  left: 10px;
   height: 2px;
   background: var(--accent);
   content: "";
@@ -162,37 +169,35 @@ img {
 
 .nav-links a:hover,
 .nav-links a.is-active,
-.lang-link:hover,
-.lang-link.active {
+.lang-link:hover {
   color: var(--paper);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-links a:hover::after,
-.nav-links a.is-active::after,
-.lang-link:hover::after,
-.lang-link.active::after {
+.nav-links a.is-active::after {
   transform: scaleX(1);
 }
 
 .nav-actions {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  margin-left: auto;
 }
 
 .cv-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 18px;
+  min-height: 34px;
+  padding: 0 13px;
   border: 1px solid rgba(255, 255, 255, 0.54);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
   color: var(--paper);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
   transition:
@@ -325,15 +330,18 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(260px, 384px) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 400px) minmax(460px, 580px);
   align-items: center;
-  width: min(var(--container), calc(100% - 60px));
+  justify-content: center;
+  width: min(1120px, calc(100% - 60px));
   margin: 0 auto;
-  gap: 76px;
+  gap: clamp(52px, 5.4vw, 72px);
 }
 
 .portrait-wrap {
   position: relative;
+  justify-self: end;
+  width: min(400px, 100%);
   margin: 0;
 }
 
@@ -357,7 +365,9 @@ img {
 }
 
 .profile-card {
-  max-width: 560px;
+  justify-self: start;
+  width: 100%;
+  max-width: 580px;
   padding: 44px;
   border: 1px solid rgba(255, 255, 255, 0.68);
   background: rgba(255, 255, 255, 0.78);
@@ -562,6 +572,81 @@ img {
   font-weight: 700;
 }
 
+.students-section {
+  background: #f8fbfe;
+}
+
+.student-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 34px 0 42px;
+}
+
+.student-stats div {
+  min-height: 138px;
+  padding: 22px;
+  border: 1px solid rgba(37, 99, 168, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(232, 241, 250, 0.72));
+  box-shadow: 0 14px 34px rgba(16, 43, 76, 0.08);
+}
+
+.student-stats strong {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue-deep);
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.student-stats span {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.student-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 38px;
+}
+
+.student-card {
+  padding: 22px;
+  border: 1px solid rgba(15, 31, 51, 0.09);
+  border-top: 3px solid rgba(37, 99, 168, 0.52);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 38px rgba(16, 43, 76, 0.07);
+}
+
+.student-card span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin-bottom: 12px;
+  padding: 0 11px;
+  border-radius: 999px;
+  background: rgba(37, 99, 168, 0.09);
+  color: var(--blue);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.student-card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.student-outcomes {
+  margin-top: 4px;
+}
+
 .paper-link {
   display: block;
   color: inherit;
@@ -746,7 +831,7 @@ img {
 @media (max-width: 980px) {
   .nav-inner {
     width: min(100% - 32px, var(--container));
-    min-height: 76px;
+    min-height: 82px;
     gap: 16px;
   }
 
@@ -756,8 +841,8 @@ img {
   }
 
   .brand img {
-    width: 58px;
-    height: 58px;
+    width: 148px;
+    height: auto;
   }
 
   .brand strong {
@@ -798,7 +883,13 @@ img {
   }
 
   .portrait-wrap {
+    justify-self: center;
     width: min(420px, 100%);
+  }
+
+  .profile-card {
+    justify-self: center;
+    max-width: 620px;
   }
 
   .profile-card h1 {
@@ -813,6 +904,15 @@ img {
   .footer-inner {
     width: min(100% - 44px, 720px);
   }
+
+  .student-stats,
+  .student-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-stats div {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 560px) {
@@ -821,12 +921,12 @@ img {
   }
 
   .brand strong {
-    font-size: 14px;
+    display: none;
   }
 
   .brand img {
-    width: 52px;
-    height: 52px;
+    width: 128px;
+    height: auto;
   }
 
   .profile-card h1 {
@@ -878,6 +978,19 @@ img {
   .publication-list li {
     padding: 14px 14px 14px 16px;
     font-size: 15px;
+  }
+
+  .student-stats {
+    margin: 26px 0 32px;
+  }
+
+  .student-stats div,
+  .student-card {
+    padding: 18px;
+  }
+
+  .student-stats strong {
+    font-size: 36px;
   }
 
   .footer-inner p {
